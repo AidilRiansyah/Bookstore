@@ -19,7 +19,7 @@ const ShowBook = () => {
         setLoading(false);
       })
       .then(() => {
-        console.log(book);
+        // console.log(book);
       })
       .catch((err) => {
         console.log(err);

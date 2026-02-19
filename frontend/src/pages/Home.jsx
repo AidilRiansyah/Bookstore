@@ -7,7 +7,6 @@ import { MdOutlineAddBox, MdOutlineDelete } from "react-icons/md";
 import axios from "axios";
 import { API } from "../../../backend/config";
 import Spinner from "../component/spinner";
-import BackButton from "../component/BackButton";
 
 const Home = () => {
   const [books, setBooks] = useState([]);
@@ -18,7 +17,7 @@ const Home = () => {
     axios
       .get(API)
       .then((res) => {
-        console.log(res.data.data);
+        // console.log(res.data.data);
         setBooks(res.data.data);
         setLoading(false);
       })
@@ -31,7 +30,6 @@ const Home = () => {
   return (
     <div className="p-4">
       <div className="flex justify-between items-center">
-        <BackButton />
         <h1 className="text-3xl my-8">Book List</h1>
         <Link to="/books/create">
           <MdOutlineAddBox className="text-sky-500 text-4xl" />
