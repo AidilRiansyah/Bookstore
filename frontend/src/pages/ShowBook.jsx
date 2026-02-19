@@ -29,34 +29,30 @@ const ShowBook = () => {
   return (
     <div className="p-4">
       <BackButton />
-      <div className="justify-center flex">
-        <h1 className="text-3xl my-4">Show Book</h1>
-      </div>
+      <h1 className="text-3xl my-4 text-center">Show Book</h1>
       {loading ? (
         <Spinner />
       ) : (
-        <div className="flex justify-center">
-          <div className="flex flex-col border-2 border-sky-800 rounded-xl p-4 w-fit">
-            <div className="my-4 ">
-              <span className="text-xl mr-4 ">ID:</span>
-              <span>{book._id}</span>
-            </div>
-            <div className="my-4 ">
-              <span className="text-xl mr-4 ">Author:</span>
-              <span>{book.author}</span>
-            </div>
-            <div className="my-4 ">
-              <span className="text-xl mr-4 ">Publish Year:</span>
-              <span>{book.publishYear}</span>
-            </div>
-            <div className="my-4 ">
-              <span className="text-xl mr-4 ">Created At:</span>
-              <span>{new Date(book.createdAt).toString()}</span>
-            </div>
-            <div className="my-4 ">
-              <span className="text-xl mr-4 ">Last Time Updated:</span>
-              <span>{new Date(book.updatedAt).toString()}</span>
-            </div>
+        <div className="flex flex-col border-2 border-sky-800 rounded-xl p-4 w-fit mx-auto">
+          <div className="my-4 ">
+            <span className="text-xl mr-4 ">ID:</span>
+            <span>{book._id}</span>
+          </div>
+          <div className="my-4 ">
+            <span className="text-xl mr-4 ">Author:</span>
+            <span>{book.author}</span>
+          </div>
+          <div className="my-4 ">
+            <span className="text-xl mr-4 ">Publish Year:</span>
+            <span>{book.publishYear}</span>
+          </div>
+          <div className="my-4 ">
+            <span className="text-xl mr-4 ">Created At:</span>
+            <span>{new Date(book.createdAt).toString()}</span>
+          </div>
+          <div className="my-4 ">
+            <span className="text-xl mr-4 ">Last Time Updated:</span>
+            <span>{new Date(book.updatedAt).toString()}</span>
           </div>
         </div>
       )}
