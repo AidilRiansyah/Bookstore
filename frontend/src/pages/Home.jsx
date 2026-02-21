@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import { Link } from "react-router-dom";
-import { AiOutlineEdit } from "react-icons/ai";
-import { BsInfoCircle } from "react-icons/bs";
-import { MdOutlineAddBox, MdOutlineDelete } from "react-icons/md";
+import { MdOutlineAddBox } from "react-icons/md";
 import axios from "axios";
 import { API } from "../../../backend/config";
 import Spinner from "../component/spinner";
@@ -13,7 +11,7 @@ import BooksCard from "../component/home/BooksCard";
 const Home = () => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [showType, setShowType] = useState("table");
+  const [showType, setShowType] = useState("Table");
 
   useEffect(() => {
     setLoading(true);
@@ -59,9 +57,9 @@ const Home = () => {
       {loading ? (
         <Spinner />
       ) : showType === "Table" ? (
-        <BooksTable books={books} />
+        <BooksTable showType={showType} books={books} />
       ) : (
-        <BooksCard books={books} />
+        <BooksCard showType={showType} books={books} />
       )}
     </div>
   );
