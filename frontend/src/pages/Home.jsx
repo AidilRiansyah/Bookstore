@@ -7,11 +7,13 @@ import { API } from "../../../backend/config";
 import Spinner from "../component/spinner";
 import BooksTable from "../component/home/BooksTable";
 import BooksCard from "../component/home/BooksCard";
+import { useContext } from "react";
+import { ViewContext } from "../utils/ViewContext";
 
 const Home = () => {
+  const { viewType, setViewType } = useContext(ViewContext);
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [showType, setShowType] = useState("Table");
 
   useEffect(() => {
     setLoading(true);
@@ -34,7 +36,7 @@ const Home = () => {
         <button
           className="rounded-lg px-4 py-1 bg-sky-300 hover:bg-sky-600 "
           onClick={() => {
-            setShowType("Table");
+            setViewType("table");
           }}
         >
           Table
@@ -42,7 +44,7 @@ const Home = () => {
         <button
           className="rounded-lg px-4 py-1 bg-sky-300 hover:bg-sky-600 "
           onClick={() => {
-            setShowType("Card");
+            setViewType("card");
           }}
         >
           Card
@@ -56,10 +58,10 @@ const Home = () => {
       </div>
       {loading ? (
         <Spinner />
-      ) : showType === "Table" ? (
-        <BooksTable showType={showType} books={books} />
+      ) : viewType === "table" ? (
+        <BooksTable books={books} />
       ) : (
-        <BooksCard showType={showType} books={books} />
+        <BooksCard books={books} />
       )}
     </div>
   );

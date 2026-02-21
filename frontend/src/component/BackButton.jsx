@@ -1,16 +1,16 @@
-import React from "react";
-import { Link } from "react-router-dom";
 import { BsArrowLeft } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
-const BackButton = ({ destination = "/" }) => {
+const BackButton = () => {
+  const navigate = useNavigate();
   return (
     <div className="flex">
-      <Link
-        to={destination}
+      <button
+        onClick={() => navigate(-1)}
         className="bg-sky-500 text-white px-4 py-1 rounded-lg "
       >
         <BsArrowLeft className="text-2xl" />
-      </Link>
+      </button>
     </div>
   );
 };
