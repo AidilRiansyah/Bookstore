@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { API } from "../../../backend/config";
 import Spinner from "../component/spinner";
 import BackButton from "../component/BackButton";
 import { useNavigate } from "react-router-dom";
@@ -19,7 +18,7 @@ const CreateBook = () => {
     };
     setLoading(true);
     axios
-      .post(API, data)
+      .post("http://localhost:8888/books", data)
       .then(() => {
         setLoading(false);
         navigate("/");
@@ -29,7 +28,6 @@ const CreateBook = () => {
         console.log(err);
       });
   };
-  console.log("title");
 
   return (
     <div className="p-4">

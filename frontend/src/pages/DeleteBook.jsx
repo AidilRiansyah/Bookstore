@@ -3,7 +3,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import BackButton from "../component/BackButton";
 import Spinner from "../component/spinner";
 import axios from "axios";
-import { API } from "../../../backend/config";
 
 const DeleteBook = () => {
   const [loading, setLoading] = useState("");
@@ -12,7 +11,7 @@ const DeleteBook = () => {
   const handleDeleteBook = () => {
     setLoading(true);
     axios
-      .delete(`${API}/${id}`)
+      .delete(`http://localhost:8888/books/${id}`)
       .then(() => {
         setLoading(false);
         navigate("/");

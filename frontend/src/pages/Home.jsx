@@ -3,7 +3,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { MdOutlineAddBox } from "react-icons/md";
 import axios from "axios";
-import { API } from "../../../backend/config";
 import Spinner from "../component/spinner";
 import BooksTable from "../component/home/BooksTable";
 import BooksCard from "../component/home/BooksCard";
@@ -18,9 +17,8 @@ const Home = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(API)
+      .get("http://localhost:8888/books")
       .then((res) => {
-        // console.log(res.data.data);
         setBooks(res.data.data);
         setLoading(false);
       })

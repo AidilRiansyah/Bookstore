@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import BackButton from "../component/BackButton";
 import { useNavigate, useParams } from "react-router-dom";
-import { API } from "../../../backend/config";
 import Spinner from "../component/spinner";
 import axios from "axios";
 
@@ -15,7 +14,7 @@ const EditBook = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`${API}/${id}`)
+      .get(`http://localhost:8888/books/${id}`)
       .then((response) => {
         setTitle(response.data.data.title);
         setAuthor(response.data.data.author);
@@ -37,7 +36,7 @@ const EditBook = () => {
     };
     setLoading(true);
     axios
-      .put(`${API}/${id}`, data)
+      .put(`http://localhost:8888/books/${id}`, data)
       .then(() => {
         setLoading(false);
         navigate("/");
